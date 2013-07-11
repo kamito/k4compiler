@@ -1,4 +1,4 @@
 module K4compiler
-  class Markdown
+  class Markdown < Base
   end
 end

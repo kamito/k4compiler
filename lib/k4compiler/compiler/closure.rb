@@ -1,4 +1,5 @@
 module K4compiler
-  class Closure
+  class Closure < Base
+
   end
 end

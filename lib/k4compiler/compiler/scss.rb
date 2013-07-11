@@ -1,4 +1,4 @@
 module K4compiler
-  class Scss
+  class Scss < Base
   end
 end

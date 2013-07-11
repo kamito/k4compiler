@@ -4,11 +4,27 @@ require 'active_support'
 module K4compiler
   extend ActiveSupport::Autoload
 
+  autoload :Compiler
   autoload :Config
-  autoload :Closure
-  autoload :Scss
-  autoload :Markdown
+
+  # compilers
+  autoload_under('compiler') do
+    autoload :Base
+    autoload :Closure
+    autoload :Scss
+    autoload :Markdown
+  end
+
   autoload :Tasks
 
+
+  # @return [K4compiler::Compiler]
+  def self.setup(&block)
+    compiler = Compiler.new
+    compiler.setup(&block)
+    return compiler
+  end
+
+  # tasks install
   Tasks.install
 end
