@@ -1,5 +1,14 @@
 require "k4compiler/version"
+require 'active_support'
 
 module K4compiler
-  # Your code goes here...
+  extend ActiveSupport::Autoload
+
+  autoload :Config
+  autoload :Closure
+  autoload :Scss
+  autoload :Markdown
+  autoload :Tasks
+
+  Tasks.install
 end
