@@ -7,22 +7,18 @@ module K4compiler
     # default configuration
     DEFAULT_CONFIGURATION = {
       closure: {
-        target: '**/*.js',
-        target_dir: nil,
-        export_dir: nil,
         load_paths: [],
         level: :advanced,
       },
       scss: {
-        target: '**/*.scss',
-        target_dir: nil,
-        export_dir: nil,
         load_paths: [],
         syntax: :scss,
         style: :compressed,
       },
       markdown: {
-
+        markdown_options: nil,
+        renderer: nil,
+        render_options: nil,
       }
     }
 

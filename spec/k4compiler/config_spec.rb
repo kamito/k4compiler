@@ -25,18 +25,6 @@ describe K4compiler::Config do
       @config.closure.should be_instance_of(::OpenStruct)
     end
 
-    it "should has method 'closure.tartget' and the value is '**/*.js'" do
-      @config.closure.target.should eq("**/*.js")
-    end
-
-    it "should has method 'closure.target_dir' and the value is nil" do
-      @config.closure.target_dir.should be_nil
-    end
-
-    it "should has method 'closure.export_dir' and the value is nil" do
-      @config.closure.export_dir.should be_nil
-    end
-
     it "should has method 'closure.load_paths' and the value is empty array" do
       @config.closure.load_paths.should eq([])
     end
@@ -51,17 +39,6 @@ describe K4compiler::Config do
       @config.scss.should be_instance_of(::OpenStruct)
     end
 
-    it "should has method 'scss.target' and the value is '**/*.scss'" do
-      @config.scss.target.should eq("**/*.scss")
-    end
-
-    it "should has method 'scss.target_dir' and the value is nil" do
-      @config.scss.target_dir.should be_nil
-    end
-
-    it "should has method 'scss.export_dir' and the value is nil" do
-      @config.scss.export_dir.should be_nil
-    end
 
     it "should has method 'scss.syntax' and the value is ':scss'" do
       @config.scss.syntax.should eq(:scss)
@@ -78,6 +55,18 @@ describe K4compiler::Config do
     # markdown
     it "should has markdown method" do
       @config.markdown.should be_instance_of(::OpenStruct)
+    end
+
+    it "should has method 'markdown.markdown_options' and the value is empth hash" do
+      @config.markdown.markdown_options.should be_nil
+    end
+
+    it "should has method 'markdown.renderer' and the value is nil" do
+      @config.markdown.renderer.should be_nil
+    end
+
+    it "should has method 'markdown.render_options' and the value is empth hash" do
+      @config.markdown.render_options.should be_nil
     end
   end
 
