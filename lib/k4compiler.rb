@@ -13,6 +13,7 @@ module K4compiler
     autoload :Closure
     autoload :Scss
     autoload :Markdown
+    autoload :MarkdownRenderer, 'k4compiler/compiler/markdown.rb'
   end
 
   autoload :Tasks
