@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
         filename.gsub "#{File.dirname(__FILE__)}/", ""
       end
       # add relative paths to gem.files
-      gem.files += submodule_files_paths
+      spec.files += submodule_files_paths
     end
   end
 

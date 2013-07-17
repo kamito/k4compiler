@@ -3,9 +3,10 @@ require 'spec_helper'
 
 describe K4compiler::Config do
 
-  describe "::DEFAULT_CONFIGURATION" do
+  describe "#default_options" do
     it "should instance is Hash" do
-      K4compiler::Config::DEFAULT_CONFIGURATION.should be_instance_of(::Hash)
+      config = K4compiler::Config.new
+      config.default_options.should be_instance_of(::HashWithIndifferentAccess)
     end
   end
 
@@ -26,11 +27,24 @@ describe K4compiler::Config do
     end
 
     it "should has method 'closure.load_paths' and the value is empty array" do
-      @config.closure.load_paths.should eq([])
+      @config.closure.load_paths.should be_instance_of(::Array)
     end
 
     it "should has method 'closure.level' and the value is ':advanced'" do
       @config.closure.level.should eq(:advanced)
+    end
+
+    it "should has method 'closure.compiler_jar' and the value is '../../third_party/closure-compiler-20130603/compiler.jar'" do
+      compiler_path = File.expand_path(File.join(File.dirname(File.dirname(File.dirname(__FILE__))), 'third_party/closure-compiler-20130603/compiler.jar'))
+      @config.closure.compiler_jar.should eq(compiler_path)
+    end
+
+    it "should has method 'closure.java_command' and the value is 'java'" do
+      @config.closure.java_command.should eq('java')
+    end
+
+    it "should has method 'closure.python_command' and the value is 'python'" do
+      @config.closure.python_command.should eq('python')
     end
 
 
@@ -49,7 +63,7 @@ describe K4compiler::Config do
     end
 
     it "should has method 'scss.load_paths' and the value is empty array" do
-      @config.scss.load_paths.should eq([])
+      @config.scss.load_paths.should be_instance_of(::Array)
     end
 
     # markdown

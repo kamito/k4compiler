@@ -2,6 +2,11 @@ module K4compiler
 
   class Base
 
+    # @return [Hash]
+    def self.options
+      return {}
+    end
+
     def initialize(config)
       @config_ = config
     end

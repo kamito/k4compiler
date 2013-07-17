@@ -3,6 +3,14 @@ require 'sass'
 
 module K4compiler
   class Scss < Base
+    # @return [Hash]
+    def self.options
+      return {
+        load_paths: [],
+        syntax: :scss,
+        style: :compressed,
+      }
+    end
 
     # compile
     def compile(src)

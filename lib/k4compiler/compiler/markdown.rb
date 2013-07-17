@@ -4,6 +4,14 @@ require 'redcarpet'
 module K4compiler
 
   class MarkdownRenderer < ::Redcarpet::Render::HTML
+    # @return [Hash]
+    def self.options
+      return {
+        markdown_options: nil,
+        renderer: nil,
+        render_options: nil,
+      }
+    end
 
     # @override
     def block_code(code, lang=nil)
