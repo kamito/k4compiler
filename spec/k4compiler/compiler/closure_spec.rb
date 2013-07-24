@@ -149,7 +149,7 @@ describe K4compiler::Closure do
           config.closure.load_paths << File.expand_path(File.join(File.dirname(__FILE__), 'closure/src'))
           compiler = K4compiler::Closure.new(config)
           source_path = File.expand_path(File.join(File.dirname(__FILE__), 'closure/src/hello-with-closure.js'))
-          compiled_path = File.join(File.dirname(File.dirname(source_path)), 'compiled/hello-with-closure-compiled-script.js')
+          compiled_path = File.join(File.dirname(File.dirname(source_path)), 'compiled-src/hello-with-closure-compiled-script.js')
           compiled_source = compiler.compile('sample.App')
           File.read(compiled_path).should eq(compiled_source)
         end

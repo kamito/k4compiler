@@ -16,16 +16,10 @@ module K4compiler
     autoload :MarkdownRenderer, 'k4compiler/compiler/markdown.rb'
   end
 
-  autoload :Tasks
-
-
   # @return [K4compiler::Compiler]
   def self.setup(&block)
     compiler = Compiler.new
     compiler.setup(&block)
     return compiler
   end
-
-  # tasks install
-  Tasks.install
 end
