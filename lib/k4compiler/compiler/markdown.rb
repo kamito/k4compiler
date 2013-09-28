@@ -34,6 +34,11 @@ module K4compiler
       link_attributes: {target: '_blank'}
     }
 
+    # @return [Hash]
+    def self.options
+      return {}
+    end
+
     # compile
     # @param [String|StringIO] src Source of markdown.
     def compile(src)
@@ -47,6 +52,7 @@ module K4compiler
     def renderer
       cls = config.renderer ||= MarkdownRenderer
       instance = cls.new(render_options)
+      instance.config = config if instance.respond_to?(:config=)
       return instance
     end
 

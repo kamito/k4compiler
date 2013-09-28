@@ -17,9 +17,10 @@ module K4compiler
   end
 
   # @return [K4compiler::Compiler]
-  def self.setup(&block)
+  def setup(&block)
     compiler = Compiler.new
     compiler.setup(&block)
     return compiler
   end
+  module_function :setup
 end

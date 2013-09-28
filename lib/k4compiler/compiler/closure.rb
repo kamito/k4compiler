@@ -7,7 +7,7 @@ module K4compiler
         load_paths: [],
         with_closure: false,
         # common options
-        level: :advanced,
+        level: :advanced, # advanced(default) / simple / script
         java_command: 'java',
         compiler_jar: File.join(::K4compiler::Config::THIRD_PARTY_DIR, 'closure-compiler-20130603/compiler.jar'),
         # with closure options
@@ -34,7 +34,7 @@ module K4compiler
     end
 
     # @param [String] namespace JavaScript file namespace.
-    def build_compile_command_with_closure(namespace)
+    def build_compile_command_with_closure(namespace, roots=[])
       compile_mode = config.level == :script ? :script : :compiled
 
       puts config.load_paths
@@ -46,6 +46,11 @@ module K4compiler
       com << "-c #{config.compiler_jar}"
       com << "--namespace=\"#{namespace}\""
       com << "--root=#{config.closure_path}"
+      if not roots.nil? and roots.is_a?(::Array)
+        roots.each do |root|
+          com << "--root=#{root}"
+        end
+      end
       config.load_paths.each do |path|
         com << "--root=#{path}"
       end
